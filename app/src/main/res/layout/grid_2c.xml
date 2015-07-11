@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"              >
+    <LinearLayout android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:orientation="vertical"
+
+        android:id="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:weightSum="3"
+        android:layout_above="@+id/linearLayout1"
+        android:padding="5dp"
+        android:id="@+id/linny"
+        android:layout_below="@+id/linearLayout">
+
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView1"
+            android:background="#000000"
+            android:layout_weight="1.5"
+            android:layout_margin="5dp"
+            android:scaleType="fitCenter"
+            android:tag="imgButtons"/>
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:id="@+id/imageView2"
+            android:background="#000000"
+            android:layout_margin="25dp"
+            android:scaleType="fitCenter"
+            android:tag="imgButtons"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="vertical"
+        android:layout_above="@+id/btinclude"
+        android:id="@+id/linearLayout1">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btinclude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include
+            layout="@layout/effect_footer"/>
+    </LinearLayout>
+</RelativeLayout>
