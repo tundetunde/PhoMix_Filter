@@ -16,6 +16,9 @@ import android.provider.MediaStore;
 import android.view.*;
 import android.widget.*;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -39,6 +42,7 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
     File file;
     static Bitmap img_bitmap;
     FileOutputStream ostream;
+    AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,6 +92,15 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
         startActivityForResult(i, RESULT_LOAD_IMAGE);
     }
 
+    //Initializes Ad Unit
+    public void initAd(AdView ad){
+        /*AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("YOUR_DEVICE_HASH")
+                .build();*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        ad.loadAd(adRequest);
+    }
+
     //Typical Initializing of buttons
     public void initialize(){
         SaveGrid = (Button) findViewById(R.id.btSave);
@@ -105,8 +118,8 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
         l1 = (LinearLayout) findViewById(R.id.linny);
         l2 = (LinearLayout) findViewById(R.id.linny2);
         l3 = (LinearLayout) findViewById(R.id.linny3);
-        imgbuttons = new ArrayList<ImageButton>();
-        linear = new ArrayList<LinearLayout>();
+        imgbuttons = new ArrayList<>();
+        linear = new ArrayList<>();
         if(l1 != null)
             initiliazeImg(l1);
             linear.add(l1);
@@ -121,6 +134,8 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
             x.setOnClickListener(this);
             registerForContextMenu(x);
         }
+        adView = (AdView) findViewById(R.id.adView);
+        initAd(adView);
     }
 
     //Initializes buttons according to how many there are
