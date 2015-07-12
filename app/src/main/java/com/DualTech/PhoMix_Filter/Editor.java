@@ -16,6 +16,10 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.widget.*;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -31,6 +35,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     final static File DIR = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/PhoMix Filter/");
     Button btBright,btContrast,btNegative,btGrayScale,btRotate,btSaturation,btSepia, btFlip, btGrain, btFillLight,btBorder,btChgBorder,btSave, btSelect;
     ImageButton  overFlow, share;
+    AdView adView;
     private static int RESULT_LOAD_IMAGE = 1;
     GLSurfaceView glView;
     SurfaceViewRenderer surfaceViewRenderer;
@@ -92,7 +97,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         seekBar = (SeekBar) findViewById(R.id.skBar);
         seekBar.setVisibility(View.INVISIBLE);
         seekBar.setOnSeekBarChangeListener(new SeekListener(this));
-        effectList = new ArrayList<Button>();
+        effectList = new ArrayList<>();
         effectText = (TextView)findViewById(R.id.tvEffect);
         btChgBorder = (Button) findViewById(R.id.bt00);
         btBorder = (Button)findViewById(R.id.bt0);
@@ -125,7 +130,17 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         for(Button x : effectList){
             x.setOnClickListener(new ButtonListener(this));
         }
+        adView = (AdView) findViewById(R.id.adView);
+        initAd(adView);
+    }
 
+    //Initializes Ad Unit
+    public void initAd(AdView ad){
+        /*AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("YOUR_DEVICE_HASH")
+                .build();*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        ad.loadAd(adRequest);
     }
 
     public void selectPicture(){

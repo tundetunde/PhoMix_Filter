@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
+    <LinearLayout android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/linearLayout">
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -21,7 +37,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Border Off"
+                android:text="@string/borderOff"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -30,7 +46,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Border Color"
+                android:text="@string/borderColor"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -39,7 +55,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Brightness"
+                android:text="@string/brightness"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -48,7 +64,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contrast"
+                android:text="@string/contrast"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -57,7 +73,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Negative"
+                android:text="@string/negative"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -66,7 +82,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GrayScale"
+                android:text="@string/grayScale"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -75,7 +91,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rotate"
+                android:text="@string/rotate"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -84,7 +100,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Saturation"
+                android:text="@string/saturation"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -93,7 +109,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sepia"
+                android:text="@string/sepia"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -102,7 +118,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Flip"
+                android:text="@string/flip"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -111,7 +127,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Grain"
+                android:text="@string/grain"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -120,7 +136,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fill-Light"
+                android:text="@string/Fill-Light"
                 android:background="@drawable/bt_effect"
                 android:layout_marginRight="5dp"
                 android:tag="effects"
@@ -129,21 +145,15 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/linny"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/btSave"
         android:layout_above="@+id/skBar"
         android:padding="15dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentLeft="true">
-        <android.opengl.GLSurfaceView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/effectsView"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout"></LinearLayout>-->
 
 
     <SeekBar
@@ -169,6 +179,15 @@
         android:layout_above="@+id/skBar"
         android:layout_alignParentLeft="true" />
 
+    <android.opengl.GLSurfaceView
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:id="@+id/effectsView"
+        android:background="@android:color/transparent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_above="@+id/tvEffect" />
 
 
 </RelativeLayout>

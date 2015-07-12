@@ -73,8 +73,8 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
     }
 
     public Bitmap takeScreenshot(GL10 mGL) {
-        final int width = glView.getWidth();
-        final int height = glView.getHeight();
+        final int width = Editor.inputBitmap.getWidth();
+        final int height = Editor.inputBitmap.getHeight();
         IntBuffer ib = IntBuffer.allocate(width * height);
         IntBuffer ibt = IntBuffer.allocate(width * height);
 

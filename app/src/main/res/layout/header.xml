@@ -29,7 +29,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Select"
+            android:text="@string/select"
             android:background="@android:color/transparent"
             android:textSize="17sp"
             android:textColor="#ff816dff"
@@ -40,7 +40,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="@string/saveB"
             android:textSize="17sp"
             android:textColor="#ff816dff"
             android:layout_marginRight="10dp"
