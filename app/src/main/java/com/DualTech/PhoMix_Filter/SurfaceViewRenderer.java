@@ -34,9 +34,9 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         rotateOn = effectBool = false;
         this.editor = editor;
         this.glView = glView;
-        glView.setEGLContextClientVersion(2);
-        glView.setRenderer(this);
-        glView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+        this.glView.setEGLContextClientVersion(2);
+        this.glView.setRenderer(this);
+        this.glView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
         currentEffect = 0;
         sendImage = false;
     }

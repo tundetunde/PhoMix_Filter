@@ -47,6 +47,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     static int call=0;
     static int picsTaken = 0;
     int angle;
+    static boolean picChosen;
     FileOutputStream out; //Used for rotate
     //FileOutputStream ostream;
 
@@ -57,14 +58,22 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.header);
         TextureRenderer.clearScreen();
         angle = 0;
-        if(call == 0)
+        if(call == 0) {
             inputBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.click_select);
-        else if(call == 1)
+            picChosen = false;
+        }
+        else if(call == 1) {
             inputBitmap = Grid.img_bitmap;
-        else if(call == 2)
+            picChosen = true;
+        }
+        else if(call == 2){
             inputBitmap = Camera.img_bitmap;
+            picChosen = true;
+        }
+
 
         glView = (GLSurfaceView) findViewById(R.id.effectsView);
+
         surfaceViewRenderer = new SurfaceViewRenderer(this, glView);
         vBright = vContrast = 1;
         vSat = vGrain = vFillLight = 0f;
@@ -120,6 +129,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     }
 
     public void selectPicture(){
+        picChosen = true;
         i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, RESULT_LOAD_IMAGE);
         i = new Intent("com.DualTech.PhoMix_Filter.EDITOR");
@@ -178,6 +188,8 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         }
 
     }
+
+
 
     public void share(String type, String caption){
 
