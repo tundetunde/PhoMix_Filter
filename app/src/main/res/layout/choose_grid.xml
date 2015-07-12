@@ -41,22 +41,19 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 2A"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid2a"
                     android:id="@+id/btGrid2a"
                     />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 2B"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid2b"
                     android:id="@+id/btGrid2b"
                     />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 2C"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid2c"
                     android:id="@+id/btGrid2c"
                     />
 
@@ -80,22 +77,19 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 3A"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid3a"
                     android:id="@+id/btGrid3a"
                     />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 3B"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid3b"
                     android:id="@+id/btGrid3b"
                     />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 3C"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid3c"
                     android:id="@+id/btGrid3c"
                     />
 
@@ -119,15 +113,13 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 4A"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid4a"
                     android:id="@+id/btGrid4a"
                     />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 4B"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid4b"
                     android:id="@+id/btGrid4b"
                     />
 
@@ -151,8 +143,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Grid 5A"
-                    android:background="@drawable/bt_ch_grid"
+                    android:background="@drawable/grid5a"
                     android:id="@+id/btGrid5a"
                     />
             </GridLayout>

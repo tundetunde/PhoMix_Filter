@@ -15,7 +15,7 @@
     <string name="sepia">Sepia</string>
     <string name="flip">Flip</string>
     <string name="grain">Grain</string>
-    <string name="Fill-Light">Fill-Light</string>
+    <string name="fill_light">Fill-Light</string>
 
     <string name="saveB">Save</string>
     <string name="select">Select</string>
