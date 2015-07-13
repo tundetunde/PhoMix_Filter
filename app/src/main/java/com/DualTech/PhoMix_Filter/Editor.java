@@ -34,7 +34,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     static ArrayList<Button> effectList;
     final static File DIR = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/PhoMix Filter/");
     Button btBright,btContrast,btNegative,btGrayScale,btRotate,btSaturation,btSepia, btFlip, btGrain, btFillLight,btBorder,btChgBorder,btSave, btSelect;
-    Button btUndo, btApply;
+    Button btUndo, btApply,btClr;
     ImageButton  overFlow, share;
     AdView adView;
     private static int RESULT_LOAD_IMAGE = 1;
@@ -114,6 +114,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         btFillLight = (Button)findViewById(R.id.bt10);
         btUndo = (Button)findViewById(R.id.undo);
         btApply = (Button)findViewById(R.id.btApply);
+        btClr = (Button) findViewById(R.id.btClr);
         effectList.add(btChgBorder);
         effectList.add(btBorder);
         effectList.add(btBright);
@@ -135,6 +136,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         }
         btApply.setOnClickListener(new ButtonListener(this));
         btUndo.setOnClickListener(new ButtonListener(this));
+        btClr.setOnClickListener(new ButtonListener(this));
         adView = (AdView) findViewById(R.id.adView);
         initAd(adView);
     }
