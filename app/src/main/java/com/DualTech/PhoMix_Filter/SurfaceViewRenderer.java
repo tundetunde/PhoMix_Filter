@@ -202,6 +202,7 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         if(applyOn){
             Editor.previousImage = Editor.currentImage;
             Editor.currentImage = takeScreenshot(gl);
+            Editor.picsTaken = 0;
             editor.resetValues();
             loadTextures();
         }

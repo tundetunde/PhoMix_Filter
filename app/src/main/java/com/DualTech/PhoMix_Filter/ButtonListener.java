@@ -114,6 +114,7 @@ public class ButtonListener implements View.OnClickListener {
                 SurfaceViewRenderer.undoBool = true;
                 break;
             case R.id.btApply:
+                SurfaceViewRenderer.applyOn = true;
                 break;
 
         }
