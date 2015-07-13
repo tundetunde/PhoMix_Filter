@@ -43,7 +43,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     Intent i;
     File file;
     static int currentEffect;
-    public static boolean effectOn, changeImage;
+    public static boolean effectOn, changeImage, onlyPic;
     static Bitmap lastPicTaken;
     public static Bitmap currentImage, previousImage;
     float vBright, vContrast, vSat, vGrain, vFillLight;
@@ -83,7 +83,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         surfaceViewRenderer = new SurfaceViewRenderer(this, glView);
         vBright = vContrast = 1;
         vSat = vGrain = vFillLight = 0f;
-
+        onlyPic = true;
         effectOn = false;
         initialize();
         changeImage = false; //Check if user used select photo button
@@ -183,7 +183,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     }
 
     public boolean isOnlyPic(){
-        return currentImage == previousImage;
+        return onlyPic;
     }
 
     public void saveBitmap(Bitmap bitmap) {

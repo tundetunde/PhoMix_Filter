@@ -200,12 +200,19 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         }
 
         if(applyOn){
-            Editor.previousImage = Editor.currentImage;
-            Editor.currentImage = takeScreenshot(gl);
+            Editor.previousImage = Editor.currentImage.copy(Editor.currentImage.getConfig(), true);
+            Bitmap bmp = takeScreenshot(gl);
+            Editor.currentImage = bmp.copy(bmp.getConfig(), true);
             Editor.picsTaken = 0;
             editor.resetValues();
+            Editor.effectOn = false;
+            Editor.onlyPic = false;
+            //TextureRenderer.clearScreen();
+            applyOn = false;
             loadTextures();
         }
+
+
 
         if(undoBool){
             if(!editor.isOnlyPic()){
@@ -218,7 +225,8 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
     }
 
     public static void undo(){
-        Editor.currentImage = Editor.previousImage;
+        //Editor.currentImage = null;
+        Editor.currentImage = Editor.previousImage.copy(Editor.previousImage.getConfig(), true);
     }
 
 
