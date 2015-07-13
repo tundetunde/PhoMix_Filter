@@ -26,12 +26,12 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
     int textureWidth, textureHeight;
     public boolean saveFrame;
     public boolean mInitialized = false;
-    public static boolean effectBool;
     static public boolean sendImage;
     static public boolean rotateOn;
+    static public boolean undoBool, applyOn;
 
     public SurfaceViewRenderer(Editor editor, GLSurfaceView glView){
-        rotateOn = effectBool = false;
+        rotateOn = undoBool = applyOn = false;
         this.editor = editor;
         this.glView = glView;
         this.glView.setEGLContextClientVersion(2);
@@ -43,14 +43,14 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
 
     public void loadTextures(){
         GLES20.glGenTextures(2, mTextures, 0);
-        textureHeight = Editor.inputBitmap.getHeight();
-        textureWidth = Editor.inputBitmap.getWidth();
+        textureHeight = Editor.currentImage.getHeight();
+        textureWidth = Editor.currentImage.getWidth();
 
         mTexRenderer.updateTextureSize(textureWidth, textureHeight);
 
         // Upload to texture
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextures[0]);
-        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, Editor.inputBitmap, 0);
+        GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, Editor.currentImage, 0);
 
         // Set texture parameters
         GLToolBox.initTexParams();
@@ -73,8 +73,8 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
     }
 
     public Bitmap takeScreenshot(GL10 mGL) {
-        final int width = Editor.inputBitmap.getWidth();
-        final int height = Editor.inputBitmap.getHeight();
+        final int width = glView.getWidth();
+        final int height = glView.getHeight();
         IntBuffer ib = IntBuffer.allocate(width * height);
         IntBuffer ibt = IntBuffer.allocate(width * height);
 
@@ -172,12 +172,6 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         //Apply Effect if used
         if (Editor.currentEffect != 0) {
             //if an effect is chosen initialize it and apply it to the texture
-            if(effectBool){
-                effectBool = false;
-                Editor.inputBitmap = takeScreenshot(gl);
-                Editor.picsTaken = 0;
-                loadTextures();
-            }
             initEffect();
             applyEffect();
         }
@@ -198,12 +192,32 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         }
 
         if(rotateOn){
-            Editor.inputBitmap = editor.rotate(takeScreenshot(gl));
+            Editor.currentImage = editor.rotate(takeScreenshot(gl));
             Editor.picsTaken = 0;
             rotateOn = false;
             //TextureRenderer.clearScreen();
             loadTextures();
         }
+
+        if(applyOn){
+            Editor.previousImage = Editor.currentImage;
+            Editor.currentImage = takeScreenshot(gl);
+            editor.resetValues();
+            loadTextures();
+        }
+
+        if(undoBool){
+            if(!editor.isOnlyPic()){
+                undo();
+                Editor.picsTaken = 0;
+                loadTextures();
+            }
+            undoBool = false;
+        }
+    }
+
+    public static void undo(){
+        Editor.currentImage = Editor.previousImage;
     }
 
 

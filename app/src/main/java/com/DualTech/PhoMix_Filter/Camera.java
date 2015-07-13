@@ -20,9 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Created by tunde_000 on 10/06/2015.
- */
 public class Camera extends Activity implements View.OnClickListener{
 
     Button btTakeAgain,btEdit, btSave;
@@ -159,7 +156,7 @@ public class Camera extends Activity implements View.OnClickListener{
         if(resultCode == RESULT_OK){
             Bundle extras = data.getExtras();
             bmp = (Bitmap) extras.get("data");
-            Editor.inputBitmap = bmp;
+            Editor.currentImage = bmp;
             iv.setImageBitmap(bmp);
         }
     }

@@ -34,6 +34,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     static ArrayList<Button> effectList;
     final static File DIR = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/PhoMix Filter/");
     Button btBright,btContrast,btNegative,btGrayScale,btRotate,btSaturation,btSepia, btFlip, btGrain, btFillLight,btBorder,btChgBorder,btSave, btSelect;
+    Button btUndo, btApply;
     ImageButton  overFlow, share;
     AdView adView;
     private static int RESULT_LOAD_IMAGE = 1;
@@ -44,7 +45,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     static int currentEffect;
     public static boolean effectOn, changeImage;
     static Bitmap lastPicTaken;
-    public static Bitmap inputBitmap;
+    public static Bitmap currentImage, previousImage;
     float vBright, vContrast, vSat, vGrain, vFillLight;
     SeekBar seekBar;
     TextView effectText;
@@ -64,19 +65,19 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         TextureRenderer.clearScreen();
         angle = 0;
         if(call == 0) {
-            inputBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.click_select);
+            currentImage = BitmapFactory.decodeResource(getResources(), R.drawable.click_select);
             picChosen = false;
         }
         else if(call == 1) {
-            inputBitmap = Grid.img_bitmap;
+            currentImage = Grid.img_bitmap;
             picChosen = true;
         }
         else if(call == 2){
-            inputBitmap = Camera.img_bitmap;
+            currentImage = Camera.img_bitmap;
             picChosen = true;
         }
-
-
+        //currentImage = inputBitmap;
+        previousImage = currentImage;
         glView = (GLSurfaceView) findViewById(R.id.effectsView);
 
         surfaceViewRenderer = new SurfaceViewRenderer(this, glView);
@@ -111,6 +112,8 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         btFlip = (Button)findViewById(R.id.bt8);
         btGrain = (Button)findViewById(R.id.bt9);
         btFillLight = (Button)findViewById(R.id.bt10);
+        btUndo = (Button)findViewById(R.id.undo);
+        btApply = (Button)findViewById(R.id.btApply);
         effectList.add(btChgBorder);
         effectList.add(btBorder);
         effectList.add(btBright);
@@ -130,6 +133,8 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         for(Button x : effectList){
             x.setOnClickListener(new ButtonListener(this));
         }
+        btApply.setOnClickListener(new ButtonListener(this));
+        btUndo.setOnClickListener(new ButtonListener(this));
         adView = (AdView) findViewById(R.id.adView);
         initAd(adView);
     }
@@ -164,7 +169,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
             cursor.close();
 
             // my ImageView
-            inputBitmap = BitmapFactory.decodeFile(picturePath);
+            currentImage = BitmapFactory.decodeFile(picturePath);
             changeImage = true;
         }
     }
@@ -175,6 +180,10 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         Bitmap b1 = Bitmap.createBitmap(bmp, 0 , 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
         Bitmap image = Bitmap.createScaledBitmap(b1, glView.getWidth(), glView.getHeight(), true);
         return image;
+    }
+
+    public boolean isOnlyPic(){
+        return currentImage == previousImage;
     }
 
     public void saveBitmap(Bitmap bitmap) {
@@ -222,6 +231,11 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
 
         // Broadcast the Intent.
         startActivity(Intent.createChooser(share, "Share to"));
+    }
+
+    public void resetValues(){
+        vBright = vContrast = 1;
+        vSat = vGrain = vFillLight = 0f;
     }
 
     //Used to get URI of bitmap image
