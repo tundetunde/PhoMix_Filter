@@ -15,7 +15,7 @@ public class ButtonListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         editor.seekBar.setVisibility(View.INVISIBLE);
-        editor.seekBar.setProgress(10);
+        editor.seekBar.setProgress(0);
         editor.effectText.setText("");
         Editor.picsTaken = 0;
 
