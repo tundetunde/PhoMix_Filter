@@ -60,10 +60,12 @@ public class ButtonListener implements View.OnClickListener {
                 Editor.currentEffect = R.id.bt4;
                 break;
             case R.id.bt5:
+                if(Editor.picChosen) {
                     //Editor.effectOn = true;
                     editor.seekBar.setVisibility(View.INVISIBLE);
                     //Editor.currentEffect = R.id.bt5;
                     SurfaceViewRenderer.rotateOn = true;
+                }
                 break;
             case R.id.bt6:
                 Editor.effectOn = true;
@@ -114,6 +116,8 @@ public class ButtonListener implements View.OnClickListener {
             case R.id.btApply:
                 SurfaceViewRenderer.applyOn = true;
                 break;
+            case R.id.btClr:
+                SurfaceViewRenderer.clear = true;
 
         }
         editor.surfaceViewRenderer.initEffect();

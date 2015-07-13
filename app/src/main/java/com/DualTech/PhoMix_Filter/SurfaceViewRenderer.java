@@ -28,7 +28,7 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
     public boolean mInitialized = false;
     static public boolean sendImage;
     static public boolean rotateOn;
-    static public boolean undoBool, applyOn;
+    static public boolean undoBool, applyOn, clear;
 
     public SurfaceViewRenderer(Editor editor, GLSurfaceView glView){
         rotateOn = undoBool = applyOn = false;
@@ -192,10 +192,9 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         }
 
         if(rotateOn){
-            Editor.currentImage = editor.rotate();
+            Editor.currentImage = editor.rotate(Editor.currentImage);
             Editor.picsTaken = 0;
             rotateOn = false;
-            //TextureRenderer.clearScreen();
             loadTextures();
         }
 
@@ -212,8 +211,6 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
             loadTextures();
         }
 
-
-
         if(undoBool){
             if(!editor.isOnlyPic()){
                 undo();
@@ -221,6 +218,12 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
                 loadTextures();
             }
             undoBool = false;
+        }
+
+        if(clear){
+            Editor.currentImage = Editor.Selected;
+            loadTextures();
+            clear = false;
         }
     }
 
