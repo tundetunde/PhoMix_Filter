@@ -82,7 +82,7 @@ public class Camera extends Activity implements View.OnClickListener{
             case R.id.share_icon:
                 iv.setDrawingCacheEnabled(true);
                 img_bitmap = iv.getDrawingCache();
-                share("image/*","My grid");
+                share("image/*","@PhoMix Filter");
                 break;
             case R.id.overflow:
                 //Creating the instance of PopupMenu

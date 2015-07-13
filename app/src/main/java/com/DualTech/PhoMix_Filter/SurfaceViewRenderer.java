@@ -193,7 +193,7 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
 
         if (sendImage) {
             Editor.lastPicTaken = takeScreenshot(gl);
-            editor.share("image/*", "cHIcken");
+            editor.share("image/*", "@PhoMix Filter");
             sendImage = false;
         }
 

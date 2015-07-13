@@ -223,7 +223,7 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
             case R.id.share_icon:
                 l1.setDrawingCacheEnabled(true);
                 img_bitmap = l1.getDrawingCache();
-                share("image/*","My grid");
+                share("image/*","@PhoMix Filter - My grid");
                 break;
 
             case R.id.grideffect: //Goes to Editor
