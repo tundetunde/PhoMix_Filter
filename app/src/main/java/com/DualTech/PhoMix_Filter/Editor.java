@@ -52,8 +52,10 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     LinearLayout l1;
     static int call=0;
     static int picsTaken = 0;
+    static int rotation = 0;
     int angle;
     static boolean picChosen;
+    static Bitmap inputImage;
     FileOutputStream out; //Used for rotate
     //FileOutputStream ostream;
 
@@ -76,8 +78,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
             currentImage = Camera.img_bitmap;
             picChosen = true;
         }
-        //currentImage = inputBitmap;
-        previousImage = currentImage;
+        inputImage = previousImage = currentImage;
         glView = (GLSurfaceView) findViewById(R.id.effectsView);
 
         surfaceViewRenderer = new SurfaceViewRenderer(this, glView);
@@ -170,15 +171,16 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
 
             // my ImageView
             currentImage = BitmapFactory.decodeFile(picturePath);
+            inputImage = currentImage.copy(currentImage.getConfig(), true);
             changeImage = true;
         }
     }
 
-    public Bitmap rotate(Bitmap bmp){
+    public Bitmap rotate(){
         Matrix matrix = new Matrix();
         matrix.postRotate(90);
-        Bitmap b1 = Bitmap.createBitmap(bmp, 0 , 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
-        Bitmap image = Bitmap.createScaledBitmap(b1, glView.getWidth(), glView.getHeight(), true);
+        Bitmap b1 = Bitmap.createBitmap(currentImage, 0 , 0, currentImage.getWidth(), currentImage.getHeight(), matrix, false);
+        Bitmap image = Bitmap.createScaledBitmap(b1, glView.getWidth(), glView.getHeight(), false);
         return image;
     }
 
