@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PhoMix_Filter</string>
+    <string name="app_name">PhoMix Filter</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
@@ -19,6 +19,8 @@
 
     <string name="saveB">Save</string>
     <string name="select">Select</string>
+    <string name="apply">Apply</string>
+    <string name="undo">Undo</string>
     <color name="text_col">#ff816dff</color>
     <color name="back_col">#ffedffe6</color>
 </resources>
