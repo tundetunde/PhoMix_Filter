@@ -65,14 +65,17 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         angle = 0;
         if(call == 0) {
             currentImage = BitmapFactory.decodeResource(getResources(), R.drawable.click_select);
+            chosenPhoto = currentImage;
             picChosen = false;
         }
         else if(call == 1) {
             currentImage = Grid.img_bitmap;
+            chosenPhoto = currentImage;
             picChosen = true;
         }
         else if(call == 2){
             currentImage = Camera.img_bitmap;
+            chosenPhoto = currentImage;
             picChosen = true;
         }
         //currentImage = inputBitmap;
