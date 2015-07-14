@@ -58,10 +58,13 @@ public class ReportBug extends Activity implements View.OnClickListener {
                 break;
             case R.id.overflow:
                 //Creating the instance of PopupMenu
+                invalidateOptionsMenu();
                 PopupMenu popup = new PopupMenu(this, overFlow);
                 //Inflating the Popup using xml file
                 popup.getMenuInflater().inflate(R.menu.action_overflow, popup.getMenu());
                 popup.setOnMenuItemClickListener(new MenuItemListener(this));
+                //popup.getMenu().findItem(R.id.report).setEnabled(false);
+                popup.getMenu().findItem(R.id.report).setVisible(false);
                 popup.show();
                 break;
         }

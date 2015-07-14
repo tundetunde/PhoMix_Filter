@@ -44,9 +44,12 @@ public class AboutUs extends Activity implements View.OnClickListener{
             case R.id.overflow:
                 //Creating the instance of PopupMenu
                 PopupMenu popup = new PopupMenu(this, overFlow);
+                invalidateOptionsMenu();
                 //Inflating the Popup using xml file
                 popup.getMenuInflater().inflate(R.menu.action_overflow, popup.getMenu());
                 popup.setOnMenuItemClickListener(new MenuItemListener(this));
+                //popup.getMenu().findItem(R.id.about).setEnabled(false);
+                popup.getMenu().findItem(R.id.about).setVisible(false);
                 popup.show();
                 break;
         }

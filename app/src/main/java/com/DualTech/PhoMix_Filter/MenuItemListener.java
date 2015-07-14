@@ -20,6 +20,10 @@ public class MenuItemListener implements PopupMenu.OnMenuItemClickListener {
 
     public boolean onMenuItemClick(MenuItem item) {
         switch(item.getItemId()){
+            case R.id.home:
+                i = new Intent("com.DualTech.PhoMix_Filter.MAIN_ACTIVITY");
+                context.startActivity(i);
+                return true;
             case R.id.report:
                 i = new Intent("com.DualTech.PhoMix_Filter.REPORT_BUG");
                 context.startActivity(i);

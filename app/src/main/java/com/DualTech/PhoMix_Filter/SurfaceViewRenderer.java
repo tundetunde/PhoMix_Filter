@@ -2,6 +2,8 @@ package com.DualTech.PhoMix_Filter;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.media.effect.Effect;
 import android.media.effect.EffectContext;
 import android.media.effect.EffectFactory;
@@ -9,6 +11,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import java.nio.IntBuffer;
 
@@ -80,15 +83,14 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
 
         mGL.glReadPixels(0, 0, width, height, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, ib);
 
-        // Convert upside down mirror-reversed image to right-side up normal
-        // image.
+        // Convert upside down mirror-reversed image to right-side up normal image.
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 ibt.put((height - i - 1) * width + j, ib.get(i * width + j));
             }
         }
 
-        Bitmap mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Bitmap mBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);//for the surface view
         mBitmap.copyPixelsFromBuffer(ibt);
         Editor.picsTaken++;
         return mBitmap;
@@ -180,7 +182,20 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         //Save the Photo
         if (saveFrame) {
             if (Editor.picsTaken == 0) {
-                editor.saveBitmap(takeScreenshot(gl));
+
+                editor.l1.setDrawingCacheEnabled(true);
+                Bitmap imgLyt= editor.l1.getDrawingCache();//for the linear layout
+
+                Bitmap glBitmap = Bitmap.createBitmap(imgLyt.getWidth(), imgLyt.getHeight(), imgLyt.getConfig());
+                Canvas canvas = new Canvas(glBitmap);
+
+                final float scale = editor.getResources().getDisplayMetrics().density;
+                // convert the DP into pixel
+                int pixel =  (int)(editor.l1.getPaddingTop() * scale + 0.5f);
+                canvas.drawBitmap(imgLyt, 0, 0, null);
+                canvas.drawBitmap(takeScreenshot(gl),pixel , pixel, null);
+
+                editor.saveBitmap(glBitmap);
                 saveFrame = false;
             }
         }
