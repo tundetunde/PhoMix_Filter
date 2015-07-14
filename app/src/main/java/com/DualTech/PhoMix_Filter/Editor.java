@@ -186,8 +186,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         Matrix matrix = new Matrix();
         matrix.postRotate(90);
         Bitmap b1 = Bitmap.createBitmap(bmp, 0 , 0, bmp.getWidth(), bmp.getHeight(), matrix, true);
-        Bitmap image = Bitmap.createScaledBitmap(b1, glView.getWidth(), glView.getHeight(), true);
-        return image;
+        return b1;
     }
 
     public boolean isOnlyPic(){

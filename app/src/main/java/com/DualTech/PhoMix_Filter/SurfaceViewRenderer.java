@@ -212,7 +212,7 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         }
 
         if(rotateOn){
-            Editor.currentImage = editor.rotate(Editor.currentImage);
+            Editor.currentImage = Bitmap.createBitmap(editor.rotate(Editor.currentImage));
             Editor.picsTaken = 0;
             rotateOn = false;
             loadTextures();
