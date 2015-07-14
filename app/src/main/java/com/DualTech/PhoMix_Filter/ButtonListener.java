@@ -68,6 +68,7 @@ public class ButtonListener implements View.OnClickListener {
                 }
                 break;
             case R.id.bt6:
+                editor.seekBar.setProgress(50);
                 Editor.effectOn = true;
                 editor.seekBar.setVisibility(View.VISIBLE);
                 Editor.currentEffect = R.id.bt6;

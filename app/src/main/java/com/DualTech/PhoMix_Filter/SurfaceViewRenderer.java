@@ -221,9 +221,9 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         }
 
         if(clear){
-            Editor.currentImage = Editor.Selected;
-            loadTextures();
+            Editor.currentImage = Editor.chosenPhoto;
             clear = false;
+            loadTextures();
         }
     }
 
@@ -231,6 +231,5 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
         //Editor.currentImage = null;
         Editor.currentImage = Editor.previousImage.copy(Editor.previousImage.getConfig(), true);
     }
-
 
 }

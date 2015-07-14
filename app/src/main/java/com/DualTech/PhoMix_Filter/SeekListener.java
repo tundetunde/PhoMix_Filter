@@ -26,9 +26,11 @@ public class SeekListener implements SeekBar.OnSeekBarChangeListener {
                 break;
             case R.id.bt6:
                 if(progress <= 50){
-                    editor.vSat = -(progress / 100);
+                    float p = (float) (progress / 50.0);
+                    editor.vSat = p - 1;
                 }else{
-                    editor.vSat = progress / 100;
+                    float p = (float) (progress/2.0);
+                    editor.vSat = p / 50;
                 }
                 editor.effectText.setText("Saturation: " + (editor.vSat * 100) + "%");
                 break;

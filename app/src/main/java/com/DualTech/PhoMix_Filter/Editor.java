@@ -45,7 +45,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     static int currentEffect;
     public static boolean effectOn, changeImage, onlyPic;
     static Bitmap lastPicTaken;
-    public static Bitmap currentImage, previousImage, Selected;
+    public static Bitmap currentImage, previousImage, chosenPhoto;
     float vBright, vContrast, vSat, vGrain, vFillLight;
     SeekBar seekBar;
     TextView effectText;
@@ -55,7 +55,6 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     int angle;
     static boolean picChosen;
     FileOutputStream out; //Used for rotate
-    //FileOutputStream ostream;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,7 +171,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
 
             // my ImageView
             currentImage = BitmapFactory.decodeFile(picturePath);
-            Selected = currentImage;
+            chosenPhoto = BitmapFactory.decodeFile(picturePath);
             changeImage = true;
         }
     }
@@ -215,8 +214,6 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         }
 
     }
-
-
 
     public void share(String type, String caption){
 
