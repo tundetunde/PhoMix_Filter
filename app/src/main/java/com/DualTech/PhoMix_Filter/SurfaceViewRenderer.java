@@ -170,6 +170,10 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
             loadTextures();
             Editor.changeImage = false;
         }
+        if(Editor.picChosen){
+            loadTextures();
+            Editor.picChosen = false;
+        }
 
         //Apply Effect if used
         if (Editor.currentEffect != 0) {
@@ -184,7 +188,8 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
             if (Editor.picsTaken == 0) {
 
                 editor.l1.setDrawingCacheEnabled(true);
-                Bitmap imgLyt= editor.l1.getDrawingCache();//for the linear layout
+                Bitmap imgLyt= Bitmap.createBitmap(editor.l1.getDrawingCache());//for the linear layout
+                editor.l1.setDrawingCacheEnabled(false);
 
                 Bitmap glBitmap = Bitmap.createBitmap(imgLyt.getWidth(), imgLyt.getHeight(), imgLyt.getConfig());
                 Canvas canvas = new Canvas(glBitmap);
@@ -243,7 +248,6 @@ public class SurfaceViewRenderer implements GLSurfaceView.Renderer {
     }
 
     public static void undo(){
-        //Editor.currentImage = null;
         Editor.currentImage = Editor.previousImage.copy(Editor.previousImage.getConfig(), true);
     }
 

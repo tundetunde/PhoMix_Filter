@@ -222,7 +222,8 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
 
             case R.id.share_icon:
                 l1.setDrawingCacheEnabled(true);
-                img_bitmap = l1.getDrawingCache();
+                img_bitmap = Bitmap.createBitmap(l1.getDrawingCache());
+                l1.setDrawingCacheEnabled(false);
                 share("image/*","@PhoMix Filter - My grid");
                 break;
 
@@ -230,7 +231,10 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
                 try
                 {
                     l1.setDrawingCacheEnabled(true);
-                    img_bitmap = l1.getDrawingCache();
+                    //l1.buildDrawingCache();
+                    img_bitmap = Bitmap.createBitmap(l1.getDrawingCache());
+                    l1.setDrawingCacheEnabled(false);
+                    //Editor.currentImage = img_bitmap;
                     i = new Intent("com.DualTech.PhoMix_Filter.EDITOR");
                     Editor.call = 1;
                     startActivity(i);
@@ -261,7 +265,8 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
                 try
                 {
                     l1.setDrawingCacheEnabled(true);
-                    img_bitmap = l1.getDrawingCache();
+                    img_bitmap = Bitmap.createBitmap(l1.getDrawingCache());
+                    l1.setDrawingCacheEnabled(false);
                     boolean b = file.createNewFile();
                     ostream = new FileOutputStream(file);
                     img_bitmap.compress(Bitmap.CompressFormat.JPEG, 100, ostream);

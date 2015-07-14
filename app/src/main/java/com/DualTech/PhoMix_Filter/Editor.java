@@ -62,6 +62,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         setContentView(R.layout.effect);
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.header);
         TextureRenderer.clearScreen();
+
         angle = 0;
         if(call == 0) {
             currentImage = BitmapFactory.decodeResource(getResources(), R.drawable.click_select);
@@ -69,7 +70,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
             picChosen = false;
         }
         else if(call == 1) {
-            currentImage = Grid.img_bitmap;
+            currentImage = Grid.img_bitmap.copy(Grid.img_bitmap.getConfig(), false);
             chosenPhoto = currentImage;
             picChosen = true;
         }
@@ -77,6 +78,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
             currentImage = Camera.img_bitmap;
             chosenPhoto = currentImage;
             picChosen = true;
+
         }
         //currentImage = inputBitmap;
         previousImage = currentImage;
@@ -151,6 +153,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
     }
+
 
     public void selectPicture(){
         picChosen = true;
