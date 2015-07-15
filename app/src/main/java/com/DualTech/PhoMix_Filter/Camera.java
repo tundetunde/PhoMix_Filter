@@ -72,6 +72,7 @@ public class Camera extends Activity implements View.OnClickListener{
             case R.id.edit:
                 iv.setDrawingCacheEnabled(true);
                 img_bitmap = iv.getDrawingCache();
+                iv.setDrawingCacheEnabled(false);
                 i = new Intent("com.DualTech.PhoMix_Filter.EDITOR");
                 Editor.call = 2;
                 startActivity(i);
@@ -79,6 +80,7 @@ public class Camera extends Activity implements View.OnClickListener{
             case R.id.share_icon:
                 iv.setDrawingCacheEnabled(true);
                 img_bitmap = iv.getDrawingCache();
+                iv.setDrawingCacheEnabled(false);
                 share("image/*","@PhoMix Filter");
                 break;
             case R.id.overflow:
@@ -103,6 +105,7 @@ public class Camera extends Activity implements View.OnClickListener{
                     boolean b = file.createNewFile();
                     ostream = new FileOutputStream(file);
                     iv.getDrawingCache().compress(Bitmap.CompressFormat.JPEG, 100, ostream);
+                    iv.setDrawingCacheEnabled(false);
                 }
                 catch (Exception e)
                 {
@@ -133,7 +136,6 @@ public class Camera extends Activity implements View.OnClickListener{
     }
 
     public void share(String type, String caption){
-
         // Create the new Intent using the 'Send' action.
         Intent share = new Intent(Intent.ACTION_SEND);
 
@@ -142,7 +144,6 @@ public class Camera extends Activity implements View.OnClickListener{
 
         Uri uri = getImageUri(this,img_bitmap);
         // Add the URI and the caption to the Intent.
-        //if(uri != null)
         share.putExtra(Intent.EXTRA_STREAM, uri);
         share.putExtra(Intent.EXTRA_TEXT, caption);
 

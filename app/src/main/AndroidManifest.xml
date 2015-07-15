@@ -61,14 +61,18 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutUs" android:theme="@style/action">
+        <activity android:name=".AboutUs"
+            android:theme="@style/action"
+            android:noHistory="true">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.ABOUT_US" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReportBug" android:theme="@style/action">
+        <activity android:name=".ReportBug"
+            android:theme="@style/action"
+            android:noHistory="true">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.REPORT_BUG" />

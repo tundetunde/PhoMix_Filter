@@ -44,8 +44,7 @@ public class ReportBug extends Activity implements View.OnClickListener {
                 Intent emailIntent = new Intent(android.content.Intent.ACTION_SENDTO);
                 String mailTo[] = new String[] { "adajess01@gmail.com", "tundetunde000@gmail.com" };
                 emailIntent.setType("text/plain");
-                emailIntent.setData(Uri.parse("mailto:tundetunde000@gmail.com,adajess01@gmail.com"));;
-                //emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, mailTo);
+                emailIntent.setData(Uri.parse("mailto:tundetunde000@gmail.com,adajess01@gmail.com"));
                 emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Bug Report");
                 emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, report.getText());
                 emailIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -63,7 +62,6 @@ public class ReportBug extends Activity implements View.OnClickListener {
                 //Inflating the Popup using xml file
                 popup.getMenuInflater().inflate(R.menu.action_overflow, popup.getMenu());
                 popup.setOnMenuItemClickListener(new MenuItemListener(this));
-                //popup.getMenu().findItem(R.id.report).setEnabled(false);
                 popup.getMenu().findItem(R.id.report).setVisible(false);
                 popup.show();
                 break;

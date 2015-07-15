@@ -31,7 +31,7 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
     }
 
     public void initialize(){
-        gridButtons = new ArrayList<Button>();
+        gridButtons = new ArrayList<>();
         grid2 = (GridLayout) findViewById(R.id.gL2);
         grid3 = (GridLayout) findViewById(R.id.gL3);
         grid4 = (GridLayout) findViewById(R.id.gL4);
@@ -94,14 +94,6 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
             case R.id.btGrid5a:
                 chosenGrid = 51;
                 break;
-            /*case R.id.overflow:
-                //Creating the instance of PopupMenu
-                PopupMenu popup = new PopupMenu(this, overFlow);
-                //Inflating the Popup using xml file
-                popup.getMenuInflater().inflate(R.menu.action_overflow, popup.getMenu());
-                popup.setOnMenuItemClickListener(new MenuItemListener(this));
-                popup.show();
-                break;*/
         }
         if(v.getId() != R.id.overflow){
             //star grid activity

@@ -230,7 +230,6 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
 
         Uri uri = getImageUri(this,lastPicTaken);
         // Add the URI and the caption to the Intent.
-        //if(uri != null)
         share.putExtra(Intent.EXTRA_STREAM, uri);
         share.putExtra(Intent.EXTRA_TEXT, caption);
 

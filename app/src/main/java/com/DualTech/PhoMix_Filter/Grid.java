@@ -48,7 +48,6 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-        //l1.setLayoutParams().height = l1.getWidth();
         switch (ChooseGrid.getChosenGrid()){
             case 21:
                 setContentView(R.layout.grid_2a);
@@ -94,9 +93,6 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
 
     //Initializes Ad Unit
     public void initAd(AdView ad){
-        /*AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("YOUR_DEVICE_HASH")
-                .build();*/
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
     }
@@ -174,7 +170,6 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
 
         Uri uri = getImageUri(this,img_bitmap);
         // Add the URI and the caption to the Intent.
-        //if(uri != null)
         share.putExtra(Intent.EXTRA_STREAM, uri);
         share.putExtra(Intent.EXTRA_TEXT, caption);
 
@@ -187,7 +182,6 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
 
         switch(v.getId()){
             case R.id.grid_col: //Border color
-                //new SelectColor(this, Grid.this, Color.WHITE).show();
                 new Select_Color(this, Grid.this, "Key", Color.WHITE, Color.BLACK).show();
                 break;
 
@@ -197,11 +191,6 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
                 // convert the DP into pixel
                 int pixel =  (int)(5 * scale + 0.5f);
                 if(btChgBorder.getText() == "Border On"){
-                    /*for(LinearLayout x:linear){
-                        params = (ViewGroup.MarginLayoutParams) x.getLayoutParams();
-                        x.setPadding(pixel,pixel,pixel,pixel);
-                        x.setLayoutParams(params);
-                        x.requestLayout();}*/
                     l1.setPadding(pixel,pixel,pixel,pixel);
                     for(ImageButton x:imgbuttons){
                         params = (ViewGroup.MarginLayoutParams) x.getLayoutParams();
@@ -231,10 +220,8 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
                 try
                 {
                     l1.setDrawingCacheEnabled(true);
-                    //l1.buildDrawingCache();
                     img_bitmap = Bitmap.createBitmap(l1.getDrawingCache());
                     l1.setDrawingCacheEnabled(false);
-                    //Editor.currentImage = img_bitmap;
                     i = new Intent("com.DualTech.PhoMix_Filter.EDITOR");
                     Editor.call = 1;
                     startActivity(i);
@@ -362,11 +349,6 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
             Toast.makeText(this, "Press and hold picture to rotate", Toast.LENGTH_LONG).show();
         }
     }
-
-    /*@Override
-    public void colorChanged(int color) {
-        Grid.this.findViewById(R.id.linny).setBackgroundColor(color);
-    }*/
 
     @Override
     public void colorChanged(String key, int color) {

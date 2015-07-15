@@ -42,9 +42,6 @@ public class MyActivity extends Activity implements View.OnClickListener{
     }
 
     public void initAd(AdView ad){
-        /*AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("YOUR_DEVICE_HASH")
-                .build();*/
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
     }
