@@ -73,8 +73,17 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
             case 42:
                 setContentView(R.layout.grid_4b);
                 break;
+            case 43:
+                setContentView(R.layout.grid_4c);
+                break;
             case 51:
                 setContentView(R.layout.grid_5a);
+                break;
+            case 52:
+                setContentView(R.layout.grid_5b);
+                break;
+            case 53:
+                setContentView(R.layout.grid_5c);
                 break;
             default:
                 setContentView(R.layout.grid);

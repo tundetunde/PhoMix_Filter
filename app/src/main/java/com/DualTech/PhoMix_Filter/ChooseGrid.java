@@ -16,7 +16,7 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
 
     private static int chosenGrid;
     public static ArrayList<Button> gridButtons;
-    Button btGrid2a,btGrid2b, btGrid2c, btGrid3a, btGrid3b, btGrid3c, btGrid4a, btGrid4b, btGrid5a;
+    Button btGrid2a,btGrid2b, btGrid2c, btGrid3a, btGrid3b, btGrid3c, btGrid4a, btGrid4b, btGrid4c, btGrid5a, btGrid5b, btGrid5c;
     GridLayout grid2, grid3, grid4, grid5;
     ImageButton overFlow;
     Intent i;
@@ -45,7 +45,10 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
         btGrid3c = (Button) findViewById(R.id.btGrid3c);
         btGrid4a = (Button) findViewById(R.id.btGrid4a);
         btGrid4b = (Button) findViewById(R.id.btGrid4b);
+        btGrid4c = (Button) findViewById(R.id.btGrid4c);
         btGrid5a = (Button) findViewById(R.id.btGrid5a);
+        btGrid5b = (Button) findViewById(R.id.btGrid5b);
+        btGrid5c = (Button) findViewById(R.id.btGrid5c);
         overFlow = (ImageButton) findViewById(R.id.overflow);
         btGrid2a.setOnClickListener(this);
         btGrid2b.setOnClickListener(this);
@@ -55,7 +58,11 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
         btGrid3c.setOnClickListener(this);
         btGrid4a.setOnClickListener(this);
         btGrid4b.setOnClickListener(this);
+        btGrid4c.setOnClickListener(this);
         btGrid5a.setOnClickListener(this);
+        btGrid5b.setOnClickListener(this);
+        btGrid5c.setOnClickListener(this);
+
         overFlow.setOnClickListener(this);
     }
 
@@ -91,8 +98,17 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
             case R.id.btGrid4b:
                 chosenGrid = 42;
                 break;
+            case R.id.btGrid4c:
+                chosenGrid = 43;
+                break;
             case R.id.btGrid5a:
                 chosenGrid = 51;
+                break;
+            case R.id.btGrid5b:
+                chosenGrid = 52;
+                break;
+            case R.id.btGrid5c:
+                chosenGrid = 53;
                 break;
         }
         if(v.getId() != R.id.overflow){
