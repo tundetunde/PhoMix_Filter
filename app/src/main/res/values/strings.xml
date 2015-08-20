@@ -2,7 +2,12 @@
     <string name="app_name">PhoMix Filter</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="bottomHomeBanner_id">ca-app-pub-9047549049188735/6713146009</string>
+    <string name="EditorBanner_id">ca-app-pub-9047549049188735/9221432805</string>
+    <string name="GridMenuBanner_id">ca-app-pub-9047549049188735/1698166000</string>
+    <string name="GridScreenBanner_id">ca-app-pub-9047549049188735/3174899206</string>
 
     <string name="borderOff">Border Off</string>
     <string name="borderColor">Border Color</string>
