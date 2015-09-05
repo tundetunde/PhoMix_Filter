@@ -8,10 +8,15 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.8"
         android:id="@+id/capture"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:scaleType="fitXY"
+        android:background="#000"
         android:layout_above="@+id/cambt"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true" />
 
     <RelativeLayout
         android:id="@+id/cambt"

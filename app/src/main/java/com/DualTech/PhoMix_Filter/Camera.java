@@ -71,7 +71,7 @@ public class Camera extends Activity implements View.OnClickListener{
                 break;
             case R.id.edit:
                 iv.setDrawingCacheEnabled(true);
-                img_bitmap = iv.getDrawingCache();
+                img_bitmap = Bitmap.createBitmap(iv.getDrawingCache());
                 iv.setDrawingCacheEnabled(false);
                 i = new Intent("com.DualTech.PhoMix_Filter.EDITOR");
                 Editor.call = 2;
