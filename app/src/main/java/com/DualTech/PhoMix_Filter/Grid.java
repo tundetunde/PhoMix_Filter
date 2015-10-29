@@ -352,6 +352,7 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
             ImageButton myPhotoImage = (ImageButton) findViewById(currentImgID);
             int width = myPhotoImage.getWidth();
             int height = myPhotoImage.getHeight();
+            myPhotoImage.setAdjustViewBounds(true);
             Bitmap scaledBitmap = Bitmap.createScaledBitmap(BitmapFactory.decodeFile(picturePath), width, height, true);
             myPhotoImage.setImageBitmap(scaledBitmap);
 
