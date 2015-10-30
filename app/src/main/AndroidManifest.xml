@@ -17,6 +17,7 @@
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>-->
         <activity
+            android:screenOrientation="portrait"
             android:name=".SplashMain"
             android:noHistory="true">
             <intent-filter>
@@ -25,7 +26,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MyActivity" android:theme="@style/action">
+        <activity android:name=".MyActivity" android:theme="@style/action"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.MAIN_ACTIVITY" />
@@ -33,28 +35,32 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Camera" android:theme="@style/action">
+        <activity android:name=".Camera" android:theme="@style/action"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.CAMERA" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Grid" android:theme="@style/action">
+        <activity android:name=".Grid" android:theme="@style/action"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.GRID" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Editor" android:theme="@style/action">
+        <activity android:name=".Editor" android:theme="@style/action"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.EDITOR" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChooseGrid" android:theme="@style/action">
+        <activity android:name=".ChooseGrid" android:theme="@style/action"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.CHOOSE_GRID" />
@@ -63,7 +69,8 @@
         </activity>
         <activity android:name=".AboutUs"
             android:theme="@style/action"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.ABOUT_US" />
@@ -72,7 +79,8 @@
         </activity>
         <activity android:name=".ReportBug"
             android:theme="@style/action"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="com.DualTech.PhoMix_Filter.REPORT_BUG" />
