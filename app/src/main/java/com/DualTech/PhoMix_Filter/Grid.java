@@ -42,7 +42,7 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
     File file;
     static Bitmap img_bitmap;
     FileOutputStream ostream;
-    AdView adView;
+    //AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -139,8 +139,8 @@ public class Grid extends Activity implements View.OnClickListener, Select_Color
             x.setOnClickListener(this);
             registerForContextMenu(x);
         }
-        adView = (AdView) findViewById(R.id.adView);
-        initAd(adView);
+        //adView = (AdView) findViewById(R.id.adView);
+        //initAd(adView);
     }
 
     //Initializes buttons according to how many there are

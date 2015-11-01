@@ -17,7 +17,7 @@ public class MyActivity extends Activity implements View.OnClickListener{
      */
     ImageButton btCamera, btEditor, btGrid, overFlow;
     Intent i;
-    AdView adView;
+    //AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,8 @@ public class MyActivity extends Activity implements View.OnClickListener{
         btEditor = (ImageButton) findViewById(R.id.effect);
         btGrid = (ImageButton) findViewById(R.id.grid);
         overFlow = (ImageButton) findViewById(R.id.overflow);
-        adView = (AdView) findViewById(R.id.adView);
-        initAd(adView);
+        //adView = (AdView) findViewById(R.id.adView);
+        //initAd(adView);
         btCamera.setOnClickListener(this);
         btEditor.setOnClickListener(this);
         btGrid.setOnClickListener(this);

@@ -23,7 +23,7 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
     GridLayout grid2, grid3, grid4, grid5;
     ImageButton overFlow;
     Intent i;
-    AdView adView;
+    //AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,8 +78,8 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
 
         overFlow.setOnClickListener(this);
 
-        adView = (AdView) findViewById(R.id.adView);
-        initAd(adView);
+        //adView = (AdView) findViewById(R.id.adView);
+        //initAd(adView);
     }
 
     public static int getChosenGrid(){

@@ -36,7 +36,7 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
     Button btBright,btContrast,btNegative,btGrayScale,btRotate,btSaturation,btSepia, btFlip, btGrain, btFillLight,btBorder,btChgBorder,btSave, btSelect;
     Button btUndo, btApply,btClr;
     ImageButton  overFlow, share;
-    AdView adView;
+    //AdView adView;
     private static int RESULT_LOAD_IMAGE = 1;
     GLSurfaceView glView;
     SurfaceViewRenderer surfaceViewRenderer;
@@ -141,8 +141,8 @@ public class Editor extends Activity implements SelectColor.OnColorChangedListen
         btApply.setOnClickListener(new ButtonListener(this));
         btUndo.setOnClickListener(new ButtonListener(this));
         btClr.setOnClickListener(new ButtonListener(this));
-        adView = (AdView) findViewById(R.id.adView);
-        initAd(adView);
+        //adView = (AdView) findViewById(R.id.adView);
+        //initAd(adView);
     }
 
     //Initializes Ad Unit
