@@ -10,6 +10,9 @@ import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.util.ArrayList;
 
 public class ChooseGrid extends Activity implements View.OnClickListener{
@@ -20,6 +23,7 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
     GridLayout grid2, grid3, grid4, grid5;
     ImageButton overFlow;
     Intent i;
+    AdView adView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,15 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.bar_title);
         initialize();
     }
+
+    public void initAd(AdView ad){
+        /*AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("YOUR_DEVICE_HASH")
+                .build();*/
+        AdRequest adRequest = new AdRequest.Builder().build();
+        ad.loadAd(adRequest);
+    }
+
 
     public void initialize(){
         gridButtons = new ArrayList<>();
@@ -64,6 +77,9 @@ public class ChooseGrid extends Activity implements View.OnClickListener{
         btGrid5c.setOnClickListener(this);
 
         overFlow.setOnClickListener(this);
+
+        adView = (AdView) findViewById(R.id.adView);
+        initAd(adView);
     }
 
     public static int getChosenGrid(){

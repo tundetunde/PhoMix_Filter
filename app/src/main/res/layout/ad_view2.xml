@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"   android:layout_width="match_parent"
-    android:layout_height="70dp" android:id="@+id/linearLayout">
+    android:layout_height="60dp" android:id="@+id/linearLayout">
 
         <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
+            android:id="@+id/adView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/banner_ad_unit_id">
+            ads:adUnitId="@string/EditorBanner_id">
         </com.google.android.gms.ads.AdView>
 </LinearLayout>
 

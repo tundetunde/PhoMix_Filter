@@ -5,7 +5,7 @@
               android:layout_height="match_parent">
 
     <include layout="@layout/ad_view" android:id="@+id/ads"/>
-    <!--<include layout="@layout/ad_view2" android:id="@+id/ads"/> -->
+    <!--<include layout="@layout/ad_view2" android:id="@+id/ads"/>-->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
